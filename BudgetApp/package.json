@@ -1,0 +1,22 @@
+{
+  "name": "budget-app",
+  "version": "0.1.0",
+  "description": "This app will help users maintain a basic budget.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suhas-Bacchu/SE2-Budgeting-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suhas-Bacchu/SE2-Budgeting-App/issues"
+  },
+  "homepage": "https://github.com/Suhas-Bacchu/SE2-Budgeting-App#readme",
+  "devDependencies": {
+    "electron": "^3.0.10"
+  }
+}
