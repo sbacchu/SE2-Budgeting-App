@@ -11,6 +11,16 @@ function createWindow () {
 	// and load the index.html of the app.
 	win.loadFile('index.html')
 	win.setMenu(null)
+	//win.webContents.openDevTools()
+	win.webContents.on("before-input-event", (event, input) => {
+		if (input.key == "F12") {
+			if (win.webContents.isDevToolsOpened()) {
+				win.webContents.closeDevTools()
+			} else {
+				win.webContents.openDevTools()
+			}
+		}
+	})
 
 	// Emitted when the window is closed.
 	win.on('closed', () => {
@@ -19,6 +29,9 @@ function createWindow () {
 		// when you should delete the corresponding element.
 		win = null
 	})
+}
+
+function loadTransactions() {
 }
 
 // This method will be called when Electron has finished
