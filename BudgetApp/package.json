@@ -1,0 +1,30 @@
+{
+  "name": "budget-app",
+  "version": "0.1.0",
+  "description": "This app will help users maintain a basic budget.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w sqlite3 -v 3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suhas-Bacchu/SE2-Budgeting-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Suhas-Bacchu/SE2-Budgeting-App/issues"
+  },
+  "homepage": "https://github.com/Suhas-Bacchu/SE2-Budgeting-App#readme",
+  "devDependencies": {
+    "electron": "^3.0.10",
+    "electron-rebuild": "^1.8.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.5",
+    "sqlite3": "^4.0.4"
+  }
+}
