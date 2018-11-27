@@ -8,7 +8,7 @@ let db = null; // Make DB part of global scope.
 function openDatabase() {
 	if (db != null)
 		return;
-	db = new sqlite.Database("/data/userdata.db", (err) => {
+	db = new sqlite.Database("data/userdata.db", (err) => {
 		if (err) {
 			console.error(err.message);
 		}
@@ -58,7 +58,7 @@ function createTables() {
 
 // Adds default categories to categories table if none are present.
 // This should be run when starting up the program to ensure that categories exist.
-function populateCategoryTable() {
+function populateCategoriesTable() {
 	openDatabase();
 	var categoriesExist = false;
 	db.get(
@@ -84,6 +84,7 @@ function populateCategoryTable() {
 	closeDatabase();
 }
 
+// WARNING: DOES NOT CALL openDatabase OR closeDatabase.
 function addDefaultCategory(name, color) {
 	db.run("INSERT INTO categories VALUES (NULL, ?, ?)", [name, color], function(err) {
 		if (err) {
@@ -92,4 +93,18 @@ function addDefaultCategory(name, color) {
 	});
 }
 
+function getCategoryList() {
+	openDatabase();
+	db.all("SELECT * FROM categories", [], (err, rows) => {
+		if (err) {
+			throw err;
+		}
+		console.log(rows);
+	});
+	closeDatabase();
+}
+
+createTables();
+populateCategoriesTable();
+getCategoryList();
 
