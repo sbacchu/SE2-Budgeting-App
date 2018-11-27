@@ -8,7 +8,7 @@ let db = null; // Make DB part of global scope.
 function openDatabase() {
 	if (db != null)
 		return;
-	db = new sqlite.Database("data/userdata.db", (err) => {
+	db = new sqlite3.Database("data/userdata.db", (err) => {
 		if (err) {
 			console.error(err.message);
 		}
@@ -34,15 +34,15 @@ function closeDatabase() {
 // Creates the categories and transactions tables if they don't exist.
 // This should be run when starting up the program to ensure that the tables are there.
 function createTables() {
-	openDatabase();
 	db.serialize(() => {
 		db.run(
 			"CREATE TABLE IF NOT EXISTS categories (	\
 				category_id	INTEGER PRIMARY KEY,		\
 				name		TEXT,						\
 				color		TEXT						\
-			)"
-		).run(
+			)", [], (err) => {
+				console.log("Categories table created!");
+		}).run(
 			"CREATE TABLE IF NOT EXISTS transactions (							\
 				transaction_id INTEGER PRIMARY KEY,								\
 				category_id INTEGER,											\
@@ -53,13 +53,11 @@ function createTables() {
 			)"
 		);
 	});
-	closeDatabase();
 }
 
 // Adds default categories to categories table if none are present.
 // This should be run when starting up the program to ensure that categories exist.
 function populateCategoriesTable() {
-	openDatabase();
 	var categoriesExist = false;
 	db.get(
 		"SELECT * FROM categories", [], (err, row) => {
@@ -81,7 +79,6 @@ function populateCategoriesTable() {
 			}
 		});
 	}
-	closeDatabase();
 }
 
 // WARNING: DOES NOT CALL openDatabase OR closeDatabase.
@@ -94,17 +91,19 @@ function addDefaultCategory(name, color) {
 }
 
 function getCategoryList() {
-	openDatabase();
 	db.all("SELECT * FROM categories", [], (err, rows) => {
 		if (err) {
 			throw err;
 		}
 		console.log(rows);
 	});
-	closeDatabase();
 }
 
-createTables();
-populateCategoriesTable();
-getCategoryList();
+openDatabase();
+db.serialize(() => {
+	createTables();
+	populateCategoriesTable();
+	getCategoryList();
+});
+closeDatabase();
 
