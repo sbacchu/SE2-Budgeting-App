@@ -22,7 +22,6 @@ function processTransaction() {
 // Clear modal forms when they are closed.
 $(document).ready(function() {
 	$('.modal').on('hidden.bs.modal', function(){
-		console.log("HI");
 		$(this).find('form')[0].reset();
 	})
 });
