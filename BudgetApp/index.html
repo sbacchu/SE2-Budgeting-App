@@ -42,7 +42,7 @@
 									<form id="add-expense" action="#">
 										<div class="form-group">
 											<label for="expense">Description:</label>
-											<input type="text" class="form-control" id="expense" placeholder="Eg. Walmart">
+											<input type="text" class="form-control" id="description" placeholder="Eg. Walmart">
 										</div>
 										<div class="form-group">
 											<label for="amount">Amount:</label>
@@ -50,13 +50,13 @@
 										</div>
 										<div class="form-group">
 											<label for="category">Category:</label>
-											<input type="text" class="form-control" id="expense" placeholder="Eg. Transportation">
+											<input type="text" class="form-control" id="category" placeholder="Eg. Transportation">
 										</div>
 										<div class="form-group">
 											<label for="date">Date:</label>
-											<input type="date" class="form-control" id="modalDate">
+											<input type="date" class="form-control" id="date">
 										</div>
-										<button type="submit" class="btn btn-primary" onClick="addForm()">Add</button>
+										<button type="button" class="btn btn-primary" onClick="processTransaction()">Add</button>
 									</form>
 								</div>
 							</div>
