@@ -25,3 +25,12 @@ body {
 .page-header {
 	color: white;
 }
+
+#side-button {
+	background-color: #333333;
+	border: 1px solid #333333;
+}
+
+#side-button:hover {
+	background-color: grey;
+}
