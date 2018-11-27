@@ -18,5 +18,10 @@
   "homepage": "https://github.com/Suhas-Bacchu/SE2-Budgeting-App#readme",
   "devDependencies": {
     "electron": "^3.0.10"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.5"
   }
 }
