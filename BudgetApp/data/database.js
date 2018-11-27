@@ -75,27 +75,47 @@ function populateCategoriesTable() {
 				["red", "blue", "yellow", "green",
 				 "purple", "brown"];
 			for (var i = 0; i < categories.length; i++) {
-				addDefaultCategory(categories[i], colors[i]);
+				addCategory(categories[i], colors[i]);
 			}
 		});
 	}
 }
 
 // Make sure that the categories table has been created first.
-function addDefaultCategory(name, color) {
-	db.run("INSERT INTO categories VALUES (NULL, ?, ?)", [name, color], function(err) {
+function addCategory(name, color) {
+	db.run("INSERT INTO categories VALUES (NULL, ?, ?)", [name, color], (err) => {
 		if (err) {
 			return console.log(err.message);
 		}
 	});
 }
 
-function getCategoryList() {
-	db.all("SELECT * FROM categories", [], (err, rows) => {
+function addTransaction(category_id, date_of, description, amount) {
+	db.run("INSERT INTO transactions VALUES(NULL, ?, ?, ?, ?)", [category_id, date_of, description, amount], (err) => {
+		if (err) {
+			return console.log(err.message);
+		}
+	});
+}
+
+function getCategoryList(sortBy) {
+	var list;
+	db.all("SELECT * FROM categories SORT BY ?", [sortBy ? sortBy : "category_id"], (err, rows) => {
 		if (err) {
 			throw err;
 		}
-		console.log(rows);
+		list = rows;
+	});
+	return list;
+}
+
+function getTransactionList(sortBy) {
+	var list;
+	db.all("SELECT * FROM transactions SORT BY ?", [sortBy ? sortBy : date_of], (err, rows) => {
+		if (err) {
+			throw err;
+		}
+		list = rows;
 	});
 }
 
@@ -103,7 +123,8 @@ openDatabase();
 db.serialize(() => {
 	createTables();
 	populateCategoriesTable();
-	getCategoryList();
 });
 closeDatabase();
+
+
 
