@@ -81,7 +81,7 @@ function populateCategoriesTable() {
 	}
 }
 
-// WARNING: DOES NOT CALL openDatabase OR closeDatabase.
+// Make sure that the categories table has been created first.
 function addDefaultCategory(name, color) {
 	db.run("INSERT INTO categories VALUES (NULL, ?, ?)", [name, color], function(err) {
 		if (err) {
