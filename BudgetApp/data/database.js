@@ -109,7 +109,7 @@ function getCategoryList(sortBy) {
 	return list;
 }
 
-function getTransactionList(sortBy) {
+function getTransactionsList(sortBy) {
 	var list;
 	db.all("SELECT * FROM transactions SORT BY ?", [sortBy ? sortBy : date_of], (err, rows) => {
 		if (err) {
@@ -117,6 +117,18 @@ function getTransactionList(sortBy) {
 		}
 		list = rows;
 	});
+	return list;
+}
+
+function getTotalBalance() {
+	var balance;
+	db.get("SELECT SUM(amount) AS total FROM transactions", [], (err, row) => {
+		if (err) {
+			throw(err);
+		}
+		balance = row.total;
+	});
+	return balance;
 }
 
 openDatabase();
