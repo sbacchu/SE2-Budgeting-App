@@ -19,6 +19,9 @@ function processTransaction() {
 	}
 }
 
+function createCategoryDropDown() {
+}
+
 // Clear modal forms when they are closed.
 $(document).ready(function() {
 	$('.modal').on('hidden.bs.modal', function(){
