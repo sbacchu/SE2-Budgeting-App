@@ -23,7 +23,47 @@
 	</div>
 	<div id="mainview" class="container">
 		<div class="container" style="display: none;" id="trans">
-			<p>Transaction View</p>
+			<div class="row" id="head">
+				<div class="col-11">
+					<div class="page-header">
+						<h5>Transactions</h5>
+					</div>
+				</div>
+				<div class="col-1">
+					<button id="add" type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addModal">&plus;</button>
+					<div class="modal" id="addModal">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Add Transaction</h4>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<div class="modal-body">
+									<form id="add-expense" action="#">
+										<div class="form-group">
+											<label for="expense">Description:</label>
+											<input type="text" class="form-control" id="expense" placeholder="Eg. Walmart">
+										</div>
+										<div class="form-group">
+											<label for="amount">Amount:</label>
+											<input type="text" class="form-control" id="amount" placeholder="Eg. 20">
+										</div>
+										<div class="form-group">
+											<label for="category">Category:</label>
+											<input type="text" class="form-control" id="expense" placeholder="Eg. Transportation">
+										</div>
+										<div class="form-group">
+											<label for="date">Date:</label>
+											<input type="date" class="form-control" id="modalDate">
+										</div>
+										<button type="submit" class="btn btn-primary" onClick="addForm()">Add</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="container" style="display: none;" id="categ">
 			<p>Category View</p>

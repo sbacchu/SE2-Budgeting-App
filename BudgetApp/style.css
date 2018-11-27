@@ -34,3 +34,12 @@ body {
 #side-button:hover {
 	background-color: grey;
 }
+
+#add {
+	background-color: transparent;
+	border: transparent;
+}
+
+#head {
+	background-color: #FF4D4D;
+}
