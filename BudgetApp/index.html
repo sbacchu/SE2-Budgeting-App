@@ -10,19 +10,22 @@
   </head>
   <body>
 	<script src="load.js"></script>
+	<script src="button.js"></script>
 	<div id="sidebar" class="container">
 		<div class="page-header">
 			<h3>Budgeting App</h3>
 		</div>
 		<div class="btn-group-vertical w-100">
-			<button type="button" class="btn btn-primary" id="side-button">Transactions</button>
-			<button type="button" class="btn btn-primary" id="side-button">Categories</button>
+			<button onclick="TransactionFunc()" type="button" class="btn btn-primary" id="side-button">Transactions</button>
+			<button onclick="CategoryFunc()" type="button" class="btn btn-primary" id="side-button">Categories</button>
 		</div>
 	</div>
 	<div id="mainview" class="container">
-		<div class="alert alert-info">
-			This is an alert!
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<div class="container" style="display: none;" id="trans">
+			<p>Transaction View</p>
+		</div>
+		<div class="container" style="display: none;" id="categ">
+			<p>Category View</p>
 		</div>
 	</div>
   </body>
