@@ -9,8 +9,20 @@ function CategoryFunc() {
 }
 
 function processTransaction() {
-	console.log($("#description").val());
-	console.log($("#amount").val());
-	console.log($("#category").val());
-	console.log($("#date").val());
+	var desc = $("#description").val();
+	var amount = $("#amount").val();
+	var cat = $("#category").val();
+	var date = $("#date").val();
+	
+	if (desc && amount && cat && date) {
+		$("#addModal").modal("hide");
+	}
 }
+
+// Clear modal forms when they are closed.
+$(document).ready(function() {
+	$('.modal').on('hidden.bs.modal', function(){
+		console.log("HI");
+		$(this).find('form')[0].reset();
+	})
+});
