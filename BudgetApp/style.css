@@ -13,33 +13,48 @@ body {
 #sidebar {
 	flex: 0 0 250px;
 	height: 100%;
-	background-color: black;
+	background-color: lightgray;
+	color: black;
 }
 
 #mainview {
 	flex: 1 0 0;
 	height: 100%;
-	background-color: red;
+	background-color: whitesmoke;
 }
 
 .page-header {
-	color: white;
+	color: black;
 }
 
 #side-button {
-	background-color: #333333;
-	border: 1px solid #333333;
+	background-color: #4285F4;
+	border: 1px solid #4285F4;
 }
 
 #side-button:hover {
-	background-color: grey;
+	background-color: #6EA3F7;
 }
 
 #add {
-	background-color: transparent;
-	border: transparent;
+	background-color: #4285F4;
+	border: 1px solid #4285F4;
+	border-radius: 12px;
+	text-align: center;
+	position: relative;
+	right: 10px;
 }
 
 #head {
-	background-color: #FF4D4D;
+	background-color: #E8E8E8;
+	border: 1px solid #E8E8E8;
+	position: relative;
+	top: 15px;
+	color: black;
+}
+
+#transhead {
+	color: black;
+	position: relative;
+	top: 5px;
 }
