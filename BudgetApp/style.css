@@ -58,3 +58,13 @@ body {
 	position: relative;
 	top: 5px;
 }
+
+#transHeader {
+	position: relative;
+	top: 20px;
+}
+
+#pencil {
+	background-color: transparent;
+	border: 1px solid transparent;
+}
